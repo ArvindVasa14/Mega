@@ -1,11 +1,17 @@
 package com.pack.Mega.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name="comments")
 public class Comment {
 
     @Id
@@ -15,6 +21,10 @@ public class Comment {
     public String pid; // post id
     public String puid; // posted by user ID
     public String cuid; // commented by user ID
+
+    @ManyToOne
+    @JoinColumn(name = "commentList")
+    private Post post;
 
     
 }

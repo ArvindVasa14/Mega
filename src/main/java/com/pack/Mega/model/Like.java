@@ -1,17 +1,29 @@
 package com.pack.Mega.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name="likes")
 public class Like {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int lid;
-    public int pid;
-    public int uid;
+
+    @ManyToOne
+    @JoinColumn(name="pid")
+    public Post pid;
+
+    @ManyToOne
+    @JoinColumn(name = "luid")
+    public UserDetail luid;
     
 }
