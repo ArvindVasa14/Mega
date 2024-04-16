@@ -1,20 +1,26 @@
 package com.pack.Mega.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "comments")
 public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int cid; // comment id
-    public String comment; 
-    public String pid; // post id
-    public String puid; // posted by user ID
-    public String cuid; // commented by user ID
+    public int commentId;
+    public String comment;
 
-    
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_id", referencedColumnName = "postId")
+    public Post post;
+
+
 }
