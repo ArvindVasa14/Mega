@@ -22,10 +22,13 @@ public class CommentService {
     UserService userService;
 
     public Comment addComment(Comment comment, int postId, int commentedUserId){
+        System.out.println("service "+postId + " "+ commentedUserId);
         Post post= postService.getPost(postId);
         comment.setPost(post);
         User user= userService.getUser(commentedUserId);
         comment.setCommentedUserId(user);
+
+        System.out.println(comment.toString());
         return commentsRepository.save(comment);
     }
 

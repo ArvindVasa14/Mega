@@ -19,7 +19,7 @@ public class LikesService {
     @Autowired
     UserService userService;
 
-    public Likes addLikes(int postId, int userId){
+    public Likes addLikes(int userId, int postId){
         Likes likes= new Likes();
         Post post= postService.getPost(postId);
         likes.setPost(post);

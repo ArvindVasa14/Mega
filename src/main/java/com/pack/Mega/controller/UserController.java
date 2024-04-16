@@ -21,6 +21,11 @@ public class UserController {
         return new ResponseEntity<>(userService.addUser(user), HttpStatus.ACCEPTED);
     }
 
+    @GetMapping("/getUser/{userId}")
+    public ResponseEntity<?> getUser(@PathVariable int userId){
+        return new ResponseEntity<>(userService.getUser(userId), HttpStatus.OK);
+    }
+
     @PostMapping("/addUsers")
     public ResponseEntity<?> addUsers(@RequestBody List<User> users){
         return new ResponseEntity<>(userService.addUsers(users), HttpStatus.ACCEPTED);

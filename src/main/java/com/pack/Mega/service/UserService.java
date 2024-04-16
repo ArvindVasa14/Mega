@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -21,7 +22,12 @@ public class UserService {
     }
 
     public User getUser(int userId){
-        return userRepository.findById(userId).get();
+        Optional<User> userOptional= userRepository.findById(userId);
+        User user  = new User();
+        if(userOptional.isPresent())
+             user = userOptional.get();
+
+        return user;
     }
 
     public List<User> addUsers(List<User> users) {

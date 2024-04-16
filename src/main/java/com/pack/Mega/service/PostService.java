@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -27,6 +28,11 @@ public class PostService {
     }
 
     public Post getPost(int postId){
-        return postsRepository.findById(postId).get();
+        Optional<Post> postOptional= postsRepository.findById(postId);
+        Post post= new Post();
+        if (postOptional.isPresent()){
+            post= postOptional.get();
+        }
+        return post;
     }
 }
