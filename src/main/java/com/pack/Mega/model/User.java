@@ -19,10 +19,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int userId;
     public String userName;
-    public String userPassword;
-    public String role;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     public List<Post> posts= new LinkedList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "commentedUserId")
+    public List<Comment> comments= new LinkedList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "likedUser")
+    public List<Likes> likes= new LinkedList<>();
 }

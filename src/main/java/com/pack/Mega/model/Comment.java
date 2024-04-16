@@ -22,5 +22,9 @@ public class Comment {
     @JoinColumn(name = "post_id", referencedColumnName = "postId")
     public Post post;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "commented_user", referencedColumnName = "userId")
+    public User commentedUserId;
+
 
 }

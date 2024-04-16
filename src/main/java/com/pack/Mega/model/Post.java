@@ -29,4 +29,7 @@ public class Post {
     @OneToMany(mappedBy = "post")
     List<Comment> comments= new LinkedList<>();
 
+    @OneToMany(mappedBy = "post")
+    List<Likes> likes= new LinkedList<>();
+
 }
