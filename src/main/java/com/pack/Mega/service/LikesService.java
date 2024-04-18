@@ -25,7 +25,6 @@ public class LikesService {
         likes.setPost(post);
         User user= userService.getUser(userId);
         likes.setLikedUser(user);
-
         return likesRepository.save(likes);
     }
 
