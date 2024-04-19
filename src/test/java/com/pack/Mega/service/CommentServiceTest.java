@@ -1,4 +1,4 @@
-package service;
+package com.pack.Mega.service;
 
 import com.pack.Mega.controller.CommentController;
 import com.pack.Mega.model.Comment;
