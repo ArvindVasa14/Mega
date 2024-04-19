@@ -28,10 +28,12 @@ public class PostService {
     }
 
     public Post getPost(int postId){
+        System.out.println(postId);
         Optional<Post> postOptional= postsRepository.findById(postId);
         Post post= new Post();
         if (postOptional.isPresent()){
             post= postOptional.get();
+            System.out.println(post.getPostId());
         }
         return post;
     }

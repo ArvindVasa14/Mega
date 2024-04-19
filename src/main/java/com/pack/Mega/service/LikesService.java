@@ -21,6 +21,8 @@ public class LikesService {
 
     public Likes addLikes(int userId, int postId){
         Likes likes= new Likes();
+
+        System.out.println("I am being called");
         Post post= postService.getPost(postId);
         likes.setPost(post);
         User user= userService.getUser(userId);

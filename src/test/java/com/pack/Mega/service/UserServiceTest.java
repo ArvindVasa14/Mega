@@ -1,4 +1,4 @@
-package service;
+package com.pack.Mega.service;
 
 import com.pack.Mega.model.User;
 import com.pack.Mega.repository.UserRepository;
